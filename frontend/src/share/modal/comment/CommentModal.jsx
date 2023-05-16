@@ -27,8 +27,8 @@ const CommentModal = ({ open = false, handleClose = () => {} }) => {
       .post('/comment', { text: textField }, { headers: { Authorization: `Bearer ${userToken}` } })
 
     if (resp.data.success) {
-      debugger
       setComments([...comments, {id: resp.data.id, msg: resp.data.data.text}])
+      setTextField('');
       // refetch().then(x => {
       //   setComments(data.data.data.map(x => ({ ...x, msg: x.text })))
       // });
